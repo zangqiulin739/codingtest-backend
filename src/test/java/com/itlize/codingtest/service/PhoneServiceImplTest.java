@@ -25,6 +25,7 @@ public class PhoneServiceImplTest {
 	public void whenGetItems_thenReturnList() {
 		assertThat(phoneService.getItems(null, 0, 0)).isEmpty();
 		assertThat(phoneService.getItems("123", 0, 0)).isEmpty();
+		assertThat(phoneService.getItems("123", 50, 5)).isEmpty();
 		assertThat(phoneService.getItems("123456", 4, 0))
 		.hasSize(4)
 		.startsWith("123456")

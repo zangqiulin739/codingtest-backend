@@ -1,6 +1,5 @@
 package com.itlize.codingtest.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -14,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.itlize.codingtest.domain.PhoneNumber;
 import com.itlize.codingtest.service.PhoneService;
-
-import lombok.Builder.Default;
-
 
 @RestController
 @CrossOrigin
@@ -32,7 +28,7 @@ public class PhoneController {
 	}
 	
 	@GetMapping("items")
-	public List<String> getItems( PhoneNumber number, 
+	public List<String> getItems(@Valid PhoneNumber number, 
 			@RequestParam(defaultValue="25") int pageSize, 
 			@RequestParam(defaultValue="0") int pageIndex) {
 		return phoneService.getItems(number.format(),  pageSize,  pageIndex);
